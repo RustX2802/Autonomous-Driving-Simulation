@@ -13,17 +13,21 @@ class Car{
 
         this.damaged=false;
 
-        this.sensor=new Sensor();
+        if(controlType!="DUMMY"){
+            this.sensor=new Sensor();
+        }       
         this.controls=new Controls(controlType);
     }
 
-    update(roadBorders){
+    update(roadBorders,traffic){
         if(!this.damaged){
             this.#move();
             this.polygon=this.#createPolygon();
-            this.damaged=this.#assessDamage(roadBorders);
-        }    
-        this.sensor.update(this.x,this.y,this.angle,roadBorders);
+            this.damaged=this.#assessDamage(roadBorders,traffic);
+        }
+        if(this.sensor){
+            this.sensor.update(this.x,this.y,this.angle,roadBorders,traffic);
+        }     
     }
 
     #assessDamage(roadBorders){
@@ -111,6 +115,8 @@ class Car{
             ctx.lineTo(this.polygon[i].x,this.polygon[i].y);
         }
         ctx.fill();
-        this.sensor.draw(ctx);
+        if(this.sensor){
+            this.sensor.draw(ctx);
+        }
     }
 }

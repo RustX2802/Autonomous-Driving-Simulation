@@ -12,10 +12,10 @@ animate();
 
 function animate(){
     for(let i=0;i<traffic.length;i++){
-        traffic[i].update([]);
+        traffic[i].update([],[]);
     }
 
-    car.update(road.borders);
+    car.update(road.borders,traffic);
 
     myCanvas.height=window.innerHeight;
     
