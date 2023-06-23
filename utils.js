@@ -22,14 +22,15 @@ function getIntersection(A,B,C,D){
     return null;
 }
 
+//polylines
 function polysIntersect(poly1, poly2){
     for(let i=0;i<poly1.length-1;i++){
         for(let j=0;j<poly2.length-1;j++){
             const touch=getIntersection(
                 poly1[i],
-                poly1[(i+1)],
+                poly1[i+1],
                 poly2[j],
-                poly2[(j+1)]
+                poly2[j+1]
             );
             if(touch){
                 return true;

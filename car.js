@@ -1,5 +1,5 @@
 class Car{
-    constructor(x,y,width,height){
+    constructor(x,y,width,height,controlType,maxSpeed=3){
         this.x=x;
         this.y=y;
         this.width=width;
@@ -7,26 +7,31 @@ class Car{
 
         this.speed=0;
         this.acceleration=0.2;
-        this.maxSpeed=3;
+        this.maxSpeed=maxSpeed;
         this.friction=0.05;
         this.angle=0;
 
         this.damaged=false;
 
         this.sensor=new Sensor();
-        this.controls=new Controls();
+        this.controls=new Controls(controlType);
     }
 
     update(roadBorders){
-        this.#move();
-        this.polygon=this.#createPolygon();
-        this.damaged=this.#assessDamage(roadBorders);
+        if(!this.damaged){
+            this.#move();
+            this.polygon=this.#createPolygon();
+            this.damaged=this.#assessDamage(roadBorders);
+        }    
         this.sensor.update(this.x,this.y,this.angle,roadBorders);
     }
 
     #assessDamage(roadBorders){
         for(let i=0;i<roadBorders.length;i++){
-            if(polysIntersect(this.polygon,roadBorders[i])){
+            if(polysIntersect(
+                [...this.polygon,this.polygon[0]],
+                roadBorders[i])
+                ){
                 return true;
             }
         }
