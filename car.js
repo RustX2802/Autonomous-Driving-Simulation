@@ -30,11 +30,20 @@ class Car{
         }     
     }
 
-    #assessDamage(roadBorders){
+    #assessDamage(roadBorders,traffic){
         for(let i=0;i<roadBorders.length;i++){
             if(polysIntersect(
                 [...this.polygon,this.polygon[0]],
                 roadBorders[i])
+                ){
+                return true;
+            }
+        }
+        for(let i=0;i<traffic.length;i++){
+            const poly=traffic[i].polygon;
+            if(polysIntersect(
+                [...this.polygon,this.polygon[0]],
+                [...poly,poly[0]])
                 ){
                 return true;
             }
