@@ -1,6 +1,6 @@
 class Sensor{
     constructor(){
-        this.rayCount=5;
+        this.rayCount=15;
         this.rayLength=150;
         this.raySpread=Math.PI/4;
 
