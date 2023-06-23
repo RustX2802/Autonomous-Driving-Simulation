@@ -18,6 +18,23 @@ class Visualizer{
 
         const {inputs,outputs}=level;
         const nodeRadius=18;
+
+        for(let i=0;i<inputs.length;i++){
+            for(let j=0;j<outputs.length;j++){
+                ctx.beginPath();
+                ctx.moveTo(
+                    Visualizer.#getNodeX(inputs,i,left,right),
+                    bottom
+                );
+                ctx.lineTo(
+                    Visualizer.#getNodeX(outputs,j,left,right),
+                    top
+                );
+                ctx.lineWidth=2;
+                ctx.strokeStyle="orange";
+                ctx.stroke();
+            }
+        }
         for(let i=0;i<inputs.length;i++){
             const x=Visualizer.#getNodeX(inputs,i,left,right);
             ctx.beginPath();
