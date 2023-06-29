@@ -1,4 +1,5 @@
-# Car Brain Storage
+# Autonomous Driving Simulation
+## Car Brain Storage
 This repository contains code for storing and managing a car's brain in local storage using JavaScript. The car's brain is represented by a neural network, and this code allows you to save and discard the neural network as needed.
 
 ## Instructions
@@ -25,3 +26,7 @@ If you want to change the properties of the neural network or the sensor, you ne
 2. Call the `discard()` method.
    
 By discarding the old properties, you ensure that the updated neural network and sensor properties are used in the simulation.
+
+## Demo:
+
+https://github.com/RustX2802/Autonomous-Driving/assets/72299347/809a1121-6565-415f-bf93-f77fb197505f
