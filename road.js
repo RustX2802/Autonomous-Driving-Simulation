@@ -52,7 +52,7 @@ class Road{
         }
         */
 
-        ctx.setLineDash([]);
+        ctx.setLineDash([20,20]);
         this.borders.forEach(border=>{
             ctx.beginPath();
             ctx.moveTo(border[0].x,border[0].y);
@@ -61,5 +61,6 @@ class Road{
             }
             ctx.stroke();
         });
+        ctx.setLineDash([]);
     }
 }
