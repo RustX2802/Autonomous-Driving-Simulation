@@ -29,4 +29,4 @@ By discarding the old properties, you ensure that the updated neural network and
 
 ## Demo:
 
-https://github.com/RustX2802/Autonomous-Driving/assets/72299347/809a1121-6565-415f-bf93-f77fb197505f
+https://github.com/RustX2802/Autonomous-Driving-Simulation/assets/72299347/4fa715b7-14b8-402b-9f47-643af4fe1fc7
